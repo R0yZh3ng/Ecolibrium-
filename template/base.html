@@ -2,16 +2,17 @@
 <html>
 
 <head>
+{% block head %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
-  {% block head %}
 
-  {% endblock head %}
+  
   <title>{% block title %}{% endblock title %}</title>
+  {% endblock head %}
 </head>
 
 <body>
@@ -24,7 +25,7 @@
                 <li class = "header-login"><a href="{{ url_for('user.login') }}">Log In</a></li>
                 <li class = "header-login"><a href="{{ url_for('user.register') }}">Register</a></li>
             {% endif %} <!-- user not logged in -->
-            <img src="{{ url_for('static', filename='img/logo.png') }}" id="navbar-logo" alt="Quickie Hub">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" id="navbar-logo" alt="EcoLibrium">
         </ul>
         <ul class = "header header-bottom">
             {% if current_user.is_authenticated %}
