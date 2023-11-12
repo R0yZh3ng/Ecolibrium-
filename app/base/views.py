@@ -13,7 +13,8 @@ from . import base_blueprint
 
 @base_blueprint.route('/')
 def main():
-    return render_template("base/main.html")
+    user = current_user
+    return render_template("base/main.html", user = user)
 
 @base_blueprint.route('/about_us')
 def about_us():

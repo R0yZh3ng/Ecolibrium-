@@ -1,0 +1,21 @@
+a {
+  text-decoration: none;
+}
+
+.forum {
+  margin: auto;
+  width: 80%;
+  height: 100px;
+  border-radius: 50px;
+  background-color: #A3D454;
+  color: #000;
+}
+.forum-text {
+  position: relative;
+  left: 20%;
+  margin-top: 5px;
+}
+
+.forum h3 {
+  font-weight: 400;
+}
