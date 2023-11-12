@@ -1,6 +1,24 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #FEFAE0;
+}
+
+.body-block {
+  position: absolute;
+  margin-top: 65px;
+  width: 100%;
+  z-index: -1;
+  padding: 20px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fredoka One', sans-serif;
+}
+
+h1 {
+  font-size: 48px;
+  text-align: center;
 }
 
 p, li, a {
@@ -26,6 +44,7 @@ li {
   top: 0;
   width: 100%;
 }
+
 .navbar li {
   float: left;
   list-style-type: none;
@@ -97,8 +116,8 @@ li {
   min-width: 180px;
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
   top: 112%;
+  z-index: 1;
   right: 0;
 }
 /* Links inside the dropdown */
