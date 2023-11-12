@@ -13,16 +13,10 @@
         <form class="ask-forum" method="post">
             {{ form.hidden_tag() }}
             <h2 class="input">{{ form.title.label }}<br>{{ form.title(size=20) }}</h2>
-            <h2 class="input">{{ form.description.label }}<br>{{ form.description(size=20) }}</h2>
+            
             <h2 class="input">{{ form.content.label }}<br>{{ form.content(size=20) }}</h2>
 
-            <!-- Button to trigger the AI-generated summary -->
-            <button type="button" onclick="generateSummary()">Generate Summary</button>
-
-            <!-- Display the AI-generated summary here -->
-            <p id="summaryResult">{{ output_text }}</p>
-
-            <!-- Include the original form submission button -->
+            
             <p class="button">{{ form.submit() }}</p>
         </form>
 

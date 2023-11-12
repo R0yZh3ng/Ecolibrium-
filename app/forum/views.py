@@ -14,10 +14,7 @@ import requests, re
 API_URL_LIST = [
     "https://api-inference.huggingface.co/models/Michael-Vptn/ecolibrium", # michael's text sum model
     "https://api-inference.huggingface.co/models/Michael-Vptn/ecolibrium",
-    "https://api-inference.huggingface.co/models/Michael-Vptn/ecolibrium",
-    "https://api-inference.huggingface.co/models/Michael-Vptn/ecolibrium",
-    "https://api-inference.huggingface.co/models/Michael-Vptn/ecolibrium",
-    "https://api-inference.huggingface.co/models/Michael-Vptn/ecolibrium",
+
 ]
 
 headers = {"Authorization": "Bearer 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"}
