@@ -6,12 +6,11 @@
   <meta name="viewport" content="width=device-width">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
   {% block head %}
 
   {% endblock head %}
-  <title>{% block title %}{% endblock title %}</title>
+  <title>EcoLibrium - {% block title %}{% endblock title %}</title>
 </head>
 
 <body>
@@ -33,7 +32,7 @@
             {% else %} <!-- user logged in -->
             {% endif %} <!-- user not logged in -->
             
-            <li class = "header-link"><a href = "{{ url_for('base.main') }}">Get to Know Us</a></li>
+            <li class = "header-link"><a href = "{{ url_for('base.about_us') }}">Get to Know Us</a></li>
         </ul>
     </header>
         <div class="body-block">
