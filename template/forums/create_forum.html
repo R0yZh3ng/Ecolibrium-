@@ -6,15 +6,49 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/create_forum.css') }}">
 {% endblock head %}
 
-
 {% block body %}
-    <h1 style= "margin-top: 100px; text-shadow: 50px, 50px, 65px, #000000;">Create threads</h1>
+    <h1 style="margin-top: 100px; text-shadow: 50px, 50px, 65px, #000000;">Create threads</h1>
 
-    <form class = "askForum" method="post">
+    <form class="askForum" method="post">
         {{ form.hidden_tag() }}
-        <p class = "input">{{ form.title.label }}<br>{{ form.title(size=20) }}</p>
-        <p class = "input">{{ form.description.label }}<br>{{ form.description(size=20) }}</p>
-    
+        <p class="input">{{ form.title.label }}<br>{{ form.title(size=20) }}</p>
+        <p class="input">{{ form.description.label }}<br>{{ form.description(size=20) }}</p>
+
+        <!-- Button to trigger the AI-generated summary -->
+        <button type="button" onclick="generateSummary()">Generate Summary</button>
+
+        <!-- Display the AI-generated summary here -->
+        <p id="summaryResult">{{ output_text }}</p>
+
+        <!-- Include the original form submission button -->
         <p class="button">{{ form.submit() }}</p>
     </form>
+
+    <script src="{{ url_for('static', filename='js/your_script.js') }}"></script>
 {% endblock body %}
+
+{% block scripts %}
+<script>
+    function generateSummary() {
+    // Get the input text from the description field
+    var inputText = document.getElementsByName('description')[0].value;
+
+    // Make an AJAX request to Flask to generate the summary
+    fetch('/generate_summary', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+            'document_content': inputText,
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Update the summaryResult element with the generated summary
+        document.getElementById('summaryResult').textContent = data.summary;
+    })
+    .catch(error => console.error('Error:', error));
+}
+</script>
+{% endblock scripts %}
