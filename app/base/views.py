@@ -13,7 +13,7 @@ from . import base_blueprint
 
 @base_blueprint.route('/main')
 def main():
-    return render_template("base.html")
+    return render_template("base/main.html")
 
 @base_blueprint.route('/about_us')
 def about_us():
