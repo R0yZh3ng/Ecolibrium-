@@ -25,13 +25,13 @@ def view_Forum(forum_id):
    forum = Forum.query.get_or_404(forum_id)
    comment = forum.comments
 
-   return render_template('forum/view_forum.html', forum=forum, comment=comment)# use this to diplay the correct forum
+   return render_template('forums/view_forum.html', forum=forum, comment=comment)# use this to diplay the correct forum
 
 @forum_blueprint.route('/pub_view_forum/<int:forum_id>')
 def pub_view_Forum(forum_id):
    forum = Forum.query.get_or_404(forum_id)
    comment = Forum.comment
-   return render_template('forum/pub_view_forum.html', forum = forum, comment = comment)
+   return render_template('forums/pub_view_forum.html', forum = forum, comment = comment)
 
 @forum_blueprint.route('/create_forum', methods=['GET', 'POST'])
 @login_required
@@ -49,7 +49,7 @@ def create_forum():
 
        return redirect(url_for('forum.home'))
   
-   return render_template('forum/create_forum.html', form=form)# creates a new deck
+   return render_template('forums/create_forum.html', form=form)# creates a new deck
 
 
 @forum_blueprint.route('/create_Comment/<int:deck_id>', methods=['GET', 'POST'])
@@ -70,7 +70,7 @@ def create_Flash_Cards(forum_id):
 
        return redirect(url_for('forum.view_forum', forum_id = forum_id))
   
-   return render_template('forum/createComment.html', form = form)# this def creates new flashcards in the set selected
+   return render_template('forums/createComment.html', form = form)# this def creates new flashcards in the set selected
 
 def print_forums():
      all_forums = Forum.query.all()

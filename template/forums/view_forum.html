@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %} Create FC {% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/FC.css') }}">
+{% endblock head %}
+
+
+{% block body %}
+    <h1 style= "margin-top: 200px; text-shadow: 50px, 50px, 65px, #000000;">View forums {{ form }}</h1>
+
+    {% for com in comment %}
+    <div class="comment" >
+            <p>{{ com.title }}</p>
+            <p>{{ com.description }}</p>
+    </div>
+{% endfor %}
+
+   <a class ="addCard" href ="{{ url_for('forum.create_forum') }}">create forum</a>
+
+   
+{% endblock body %}

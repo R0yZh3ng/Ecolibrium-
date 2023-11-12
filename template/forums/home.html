@@ -1,16 +1,23 @@
 {% extends "base.html" %}
 
-    {% block head %}
-        
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='static/base.css') }}">
-        {% block title %}EcoLibrium{% endblock title %}
-    {% endblock head %}
+{% block title %} Create FC {% endblock title %}
 
-    {% block body %}
-        <h1>hedywyedg</h1>
-    {%  endblock body %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/FC.css') }}">
+{% endblock head %}
+
+
+{% block body %}
+    <h1 style= "margin-top: 200px; text-shadow: 50px, 50px, 65px, #000000;">View forums {{ form }}</h1>
+
+    {% for form in forum %}
+    <div class="forum" >
+            <p>{{ form.title }}</p>
+            <p>{{ form.description }}</p>
+    </div>
+    {% endfor %}
+
+   <a class ="addCard" href ="{{ url_for('forum.create_forum') }}">create forum</a>
+
+   
+{% endblock body %}
