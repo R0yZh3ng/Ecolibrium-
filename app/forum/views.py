@@ -12,7 +12,6 @@ from . import forum_blueprint
 @forum_blueprint.route('/home')
 @login_required
 def home():
-    print_forums()
     user_all_forums = Forum.query.options(db.joinedload(Forum.creator)).filter_by(creator_id=current_user.id).all()
     all_forums = Forum.query.options(db.joinedload(Forum.creator)).all()
 
@@ -25,7 +24,22 @@ def view_Forum(forum_id):
    forum = Forum.query.get_or_404(forum_id)
    all_comments = forum.comments
 
+   #total = calc()
+   #don't forget to pass the value into the render_template
+
    return render_template('forums/view_forum.html', forum=forum, all_comments=all_comments)# use this to diplay the correct forum
+
+# def calc():
+#     forum = Forum.query.all()
+#     totalSaved = forum.kilo
+    
+#     for kilo in totalSaved:
+#         kilo+=kilo
+
+#     return kilo
+    
+# This would be the function used to calculate the total kg of emission reduced
+
 
 @forum_blueprint.route('/pub_view_forum/<int:forum_id>')
 def pub_view_Forum(forum_id):
@@ -78,8 +92,3 @@ def create_Comment(forum_id):
        return redirect(url_for('forum.view_Forum', forum = forum, forum_id = forum_id))
   
    return render_template('forums/createComment.html', form = form, forum = forum)# this def creates new flashcards in the set selected
-
-def print_forums():
-     all_forums = Forum.query.all()
-     for forum in all_forums:
-       print(f"Forum ID: {forum.id}, Forum title: {forum.title}, Creator ID: {forum.creator_id}")# debug
