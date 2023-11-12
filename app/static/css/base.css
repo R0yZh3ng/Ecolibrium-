@@ -1,118 +1,14 @@
-.header {
-    width: 100%;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #1B1B1B;
-    border-radius: 5px;
-
-    font-family: 'Arial', sans-serif;
-  }
-
-  #navbar-logo {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 60px;  
-    padding: 10px;
+body {
+  margin: 0;
+  padding: 0;
 }
-  
-  .header-top li {
-    font-weight: 300;
-  }
-  .header-top li :first-child{
-    padding-left: 2.5rem;
-    float: left;
-  }
-  .header-top li :last-child{
-    padding-right: 2.5rem;
-  }
-  
-  .header-top li a {
-    text-decoration: none;
-    color: gray;
-    font-size: 1rem;
-    text-align: center;
-    float: right;
-    padding: 1.14rem 1rem;
-  }
 
-  .header-top li a:hover:not(.active) {
-    background-color: #111;
-  }
+p, li {
+  font-family: 'Sarabun', serif;
+}
 
-
-
-  .header-bottom {
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .header-bottom li {
-    font-weight: 600;
-  }
-  
-  .header-bottom li :first-child{
-    padding-left: 2.5rem;
-  }
-  .header-bottom li :last-child{
-    padding-right: 2.5rem;
-  }
-  
-  .header-bottom li a {
-    display: block;
-    text-decoration: none;
-    color: white;
-    font-size: 1.25rem;
-    text-align: center;
-    display: block;
-    flex: 0 1 auto;
-    float: left;
-    padding: 1.14rem 1rem;
-  }
-
-  .header-bottom li a:hover:not(.active) {
-    background-color: #111;
-    border-bottom: 1px solid #F59500;
-  }
-
-  .header-link {
-    font-weight: 600;
-  }
-  
-  .header-link :first-child{
-    padding-left: 2.5rem;
-  }
-  .header-link :last-child{
-    padding-right: 2.5rem;
-  }
-  
-  .header-link a {
-    display: block;
-    text-decoration: none;
-    color: white;
-    font-size: 1.25rem;
-    text-align: center;
-    display: block;
-    flex: 0 1 auto;
-    float: left;
-    padding: 1.14rem 1rem;
-  }
-
-  .header-link a:hover:not(.active) {
-    background-color: #111;
-    border-bottom: 1px solid #F59500;
-  }
-  
-  
-  
-  .active {
-    background-color: #04AA6D;
-  }
-
-  body{
-    background-color: #000000;
+li {
+  font-size: 24px;
 }
 
 h1{
@@ -124,3 +20,69 @@ h1{
   font-family: 'Arial', sans-serif;
   font-weight: 700;
 }
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 5px;
+  border-bottom: thin solid #000;
+  overflow: hidden;
+  background-color: #FEFAE0;
+  width: 100%;
+}
+.navbar li {
+  float: left;
+  list-style-type: none;
+}
+.navbar li a, .navbar li div {
+  display: block;
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#navbar-right {
+  float: right;
+}
+
+#verticalLine {
+  font-size: 30px;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #FEFAE0;
+  color: #000;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #FEFAE0;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+/* Links inside the dropdown */
+.dropdownContent a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+/* Change color of dropdown links on hover */
+.dropdownContent a:hover {background-color: #F4F0D6;}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;} 
