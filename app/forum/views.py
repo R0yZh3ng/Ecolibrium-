@@ -128,10 +128,13 @@ def delete_forum(forum_id):
 @forum_blueprint.route('/home')
 @login_required
 def home():
+
+    user_id = current_user.id
     user_all_forums = Forum.query.options(db.joinedload(Forum.creator)).filter_by(creator_id=current_user.id).all()
     all_forums = Forum.query.options(db.joinedload(Forum.creator)).all()
+    user = User.query.get_or_404(user_id)
 
-    return render_template('forums/home.html', all_forums=all_forums, user_all_forums=user_all_forums)
+    return render_template('forums/home.html', all_forums=all_forums, user = user, user_all_forums=user_all_forums)
 
 
 @forum_blueprint.route('/view_Forum/<int:forum_id>', methods=['GET', 'POST'])
