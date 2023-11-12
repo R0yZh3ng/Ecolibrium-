@@ -2,7 +2,7 @@
     font-size: 40px;
 }
 
-div{
+.content-section, .form-group, .border-top {
     text-align: center;
     padding: 25px;
 }
