@@ -8,7 +8,7 @@
 {% endblock head %}
 
 {% block body %}
-<h1><span id="num-users">xxx,xxx</span> people saving <span id="num-tons">xxxx</span> tons of carbon</h1>
+<h1><span id="num-users">234,123</span> people saving <span id="num-tons">400,012</span> tons of carbon</h1>
 <div class="line-chart" onload="drawChart()">
   <ul>
     <li class="line-chart-total" 
@@ -26,7 +26,8 @@
     <li class="line-chart-data" 
       style="--x:0px --y:0px --value: 82"></li>
   </ul>
-  <table class="line-chart-lines">
+  <table>
+    <img src="{{ url_for('static', filename='img/graph.png') }}" alt="EcoLibrium">
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>

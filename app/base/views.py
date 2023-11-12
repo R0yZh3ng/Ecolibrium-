@@ -18,4 +18,5 @@ def main():
 
 @base_blueprint.route('/about_us')
 def about_us():
-    return render_template("base/about_us.html")
+    user = current_user
+    return render_template("base/about_us.html", user=user)

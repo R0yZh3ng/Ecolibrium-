@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+{% endblock head %}
+
+{% block body %}
+
+    <h1>Hello, {{user.username}}</h1>
+
+    <h2>Your projects</h2>
+    <p>______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________</p>
+
+    {% for thread in user_all_forums %}
+
+
+    <div class="forum" >
+        <a href = "{{ url_for('forum.create_Comment', forum_id = thread.id) }}">
+            <p>{{ thread.title }}</p>
+        </a>
+    </div>
+    {% endfor %}
+{% endblock body %}
