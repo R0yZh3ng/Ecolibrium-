@@ -11,10 +11,10 @@ from datetime import date, timedelta
 
 from . import base_blueprint
 
-@base_blueprint.route('/home')
+@base_blueprint.route('/')
 def main():
     return render_template("base.html")
 
 @base_blueprint.route('/about_us')
 def about_us():
-    return render_template("about_us.html")
+    return render_template("base/about_us.html")
