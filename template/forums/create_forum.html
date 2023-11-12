@@ -13,6 +13,7 @@
         {{ form.hidden_tag() }}
         <p class="input">{{ form.title.label }}<br>{{ form.title(size=20) }}</p>
         <p class="input">{{ form.description.label }}<br>{{ form.description(size=20) }}</p>
+        <p class="input">{{ form.content.label }}<br>{{ form.content(size=20) }}</p>
 
         <!-- Button to trigger the AI-generated summary -->
         <button type="button" onclick="generateSummary()">Generate Summary</button>
@@ -30,25 +31,25 @@
 {% block scripts %}
 <script>
     function generateSummary() {
-    // Get the input text from the description field
-    var inputText = document.getElementsByName('description')[0].value;
+        // Get the input text from the content field
+        var inputText = document.getElementsByName('content')[0].value;
 
-    // Make an AJAX request to Flask to generate the summary
-    fetch('/generate_summary', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-            'document_content': inputText,
-        }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Update the summaryResult element with the generated summary
-        document.getElementById('summaryResult').textContent = data.summary;
-    })
-    .catch(error => console.error('Error:', error));
-}
+        // Make an AJAX request to Flask to generate the summary
+        fetch('/generate_summary', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'document_content': inputText,
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Update the description field with the generated summary
+            document.getElementsByName('description')[0].value = data.summary;
+        })
+        .catch(error => console.error('Error:', error));
+    }
 </script>
 {% endblock scripts %}

@@ -5,6 +5,7 @@ from wtforms.validators import DataRequired
 class CreateForumForm(FlaskForm):
     title = StringField('Forum name', validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired()])
+    content = StringField('Content', validators=[DataRequired()])
     submit = SubmitField('Create Thread')
 
 

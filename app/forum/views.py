@@ -199,7 +199,9 @@ def create_forum():
        forum = Forum(
            title=form.title.data,
            description=form.description.data,
-           creator_id=current_user.id
+           content=form.content.data,
+           creator_id=current_user.id,
+           kilo = 0.1
        )
        db.session.add(forum)
        db.session.flush()
