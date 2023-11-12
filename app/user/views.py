@@ -20,7 +20,7 @@ def login():
         user = User.query.filter_by(username = form.username.data).first()
         if user and bcrypt.check_password_hash(user.password_hash, form.password.data):
             login_user(user, remember = form.remember.data)
-            return redirect(url_for('forums.home'))
+            return redirect(url_for('forum.home'))
         else:
             flash('Login Unsuccessful, please check the username and password', 'danger')
 
@@ -50,7 +50,7 @@ def register():
 
 @user_blueprint.route('/view_profile', methods= ['GET', 'POST'])
 def view_profile(user_id):
-    user_all_forums = Forum.query.options(db.joinedload(Forum.creator)).filter_by(creator_id=user_id, private = False).all()
+    user_all_forums = Forum.query.options(db.joinedload(Forum.creator)).filter_by(creator_id=user_id).all()
     username = User.query.get_or_404(user_id)
 
     return render_template('user/view_profile.html', username = username, user_all_forums = user_all_forums)
