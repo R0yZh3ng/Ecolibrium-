@@ -128,10 +128,13 @@ def delete_forum(forum_id):
 @forum_blueprint.route('/home')
 @login_required
 def home():
+
+    user_id = current_user.id
     user_all_forums = Forum.query.options(db.joinedload(Forum.creator)).filter_by(creator_id=current_user.id).all()
     all_forums = Forum.query.options(db.joinedload(Forum.creator)).all()
+    user = User.query.get_or_404(user_id)
 
-    return render_template('forums/home.html', all_forums=all_forums, user_all_forums=user_all_forums)
+    return render_template('forums/home.html', all_forums=all_forums, user = user, user_all_forums=user_all_forums)
 
 
 @forum_blueprint.route('/view_Forum/<int:forum_id>', methods=['GET', 'POST'])
@@ -207,6 +210,7 @@ def view_forums(): # debug
 @login_required
 def create_Comment(forum_id):
    form = CreateComments()
+   user = current_user
    forum = Forum.query.get_or_404(forum_id)
    if form.validate_on_submit():
        comment = Comment(
@@ -223,4 +227,4 @@ def create_Comment(forum_id):
 
        return redirect(url_for('forum.view_Forum', forum = forum, forum_id = forum_id))
   
-   return render_template('forums/createComment.html', form = form, forum = forum)# this def creates new flashcards in the set selected
+   return render_template('forums/createComment.html', form = form, user = user, forum = forum)# this def creates new flashcards in the set selected
