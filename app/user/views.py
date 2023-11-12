@@ -48,9 +48,10 @@ def register():
         return redirect(url_for('user.login'))
     return render_template('user/register.html', title = 'Register', form= form)
 
-@user_blueprint.route('/view_profile', methods= ['GET', 'POST'])
+@user_blueprint.route('/view_profile', methods = ['GET', 'POST'])
 def view_profile(user_id):
     user_all_forums = Forum.query.options(db.joinedload(Forum.creator)).filter_by(creator_id=user_id).all()
     username = User.query.get_or_404(user_id)
 
     return render_template('user/view_profile.html', username = username, user_all_forums = user_all_forums)
+

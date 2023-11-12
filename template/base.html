@@ -28,8 +28,8 @@
                         <li><a href="{{ url_for('forum.home') }}">Browse projects</a></li>
                         <li id="verticalLine"><div>|</div></li>
                         {% if current_user.is_authenticated %}
-                            <li><a href="{{ url_for('user.self') }}"></a>pfp</li>
-                            <li><a href="{{ url_for('user.self') }}"></a>username</li>
+                            <li><a href="{{ url_for('user.view_profile') }}"></a>pfp</li>
+                            <li><a href="{{ url_for('user.view_profile') }}"></a>username</li>
                         {% else %} <!-- user logged in -->
                             <li id="navbar-button"><a href="{{ url_for('user.register') }}">Register</a></li>
                         {% endif %} <!-- user not logged in -->
@@ -44,8 +44,8 @@
                 <div id="dropdownMenu" class="dropdownContent">
                     <a href="{{ url_for('base.about_us') }}">About EcoLibrium</a>
                     {% if current_user.is_authenticated %}
-                        <a href="{{ url_for('user.self') }}">My Profile</a>
-                        <a href="{{ url_for('forums.create_forum') }}">Create a Post</a>
+                        <a href="{{ url_for('user.view_profile')}}">My Profile</a>
+                        <a href="{{ url_for('forum.create_forum') }}">Create a Post</a>
                         <a href="{{ url_for('user.logout') }}">Log Out</a>
                     {% else %} <!-- user logged in-->
                         <a href="{{ url_for('user.login') }}">Login</a>
