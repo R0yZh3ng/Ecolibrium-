@@ -13,7 +13,7 @@
     <form class = "askForum" method="post">
         {{ form.hidden_tag() }}
         <p class = "input">{{ form.title.label }}<br>{{ form.title(size=20) }}</p>
-        <p class = "input">{{ form.description.label }}<br>{{ form.title(size=20) }}</p>
+        <p class = "input">{{ form.description.label }}<br>{{ form.description(size=20) }}</p>
     
         <p class="button">{{ form.submit() }}</p>
     </form>

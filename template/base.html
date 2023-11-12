@@ -16,7 +16,11 @@
 <body>
     <header>
         <ul class = "header header-top">
+            {% if current_user.is_authenticated %}
+            <li class = "header-link" style="float:left"><a href = "{{ url_for('forum.home') }}">Home</a</li>
+            {% else %}
             <li class = "header-link" style="float:left"><a href = "{{ url_for('base.main') }}">Home</a</li>
+            {% endif %}
             {% if current_user.is_authenticated %}
                 <li class = "header-login"><a href="{{ url_for('user.logout') }}">Log Out</a></li>
             {% else %} <!-- user logged in -->

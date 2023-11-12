@@ -36,11 +36,12 @@ def pub_view_Forum(forum_id):
 @forum_blueprint.route('/create_forum', methods=['GET', 'POST'])
 @login_required
 def create_forum():
+   view_forums()
    form = CreateForumForm()
    if form.validate_on_submit():
        forum = Forum(
-           name=form.name.data,
-           private=form.private.data,
+           title=form.title.data,
+           description=form.description.data,
            creator_id=current_user.id
        )
        db.session.add(forum)
@@ -50,6 +51,10 @@ def create_forum():
        return redirect(url_for('forum.home'))
   
    return render_template('forums/create_forum.html', form=form)# creates a new deck
+
+def view_forums(): # debug
+    comments = Comment.query.all()  # Adjust this query based on your data model
+    print(comments)
 
 
 @forum_blueprint.route('/create_Comment/<int:deck_id>', methods=['GET', 'POST'])

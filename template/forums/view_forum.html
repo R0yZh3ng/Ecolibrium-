@@ -8,16 +8,15 @@
 
 
 {% block body %}
-    <h1 style= "margin-top: 200px; text-shadow: 50px, 50px, 65px, #000000;">View forums {{ form }}</h1>
+    <h1 style="margin-top: 200px; text-shadow: 50px, 50px, 65px, #000000;">View forums {{ form }}</h1>
 
     {% for com in comment %}
-    <div class="comment" >
-            <p>{{ com.title }}</p>
-            <p>{{ com.description }}</p>
+    <div class="comment">
+        <p>{{ com.title }}</p>
+        <p>{{ com.description }}</p>
     </div>
-{% endfor %}
+    {% endfor %}
 
-   <a class ="addCard" href ="{{ url_for('forum.create_forum') }}">create forum</a>
-
-   
+    <a class="addCard" href="{{ url_for('forum.create_forum') }}">create forum</a>
 {% endblock body %}
+
