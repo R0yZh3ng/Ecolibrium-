@@ -5,10 +5,11 @@ from wtforms.validators import DataRequired
 class CreateForumForm(FlaskForm):
     title = StringField('Forum name', validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired()])
-    submit = SubmitField('Create Deck')
+    content = StringField('Content', validators=[DataRequired()])
+    submit = SubmitField('Create Thread')
 
 
 class CreateComments(FlaskForm):
    title = StringField('title', validators = [DataRequired()])
    description = StringField('description', validators = [DataRequired()])
-   submit = SubmitField('Create flashCard')
+   submit = SubmitField('Create Comment')

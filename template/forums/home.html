@@ -8,12 +8,13 @@
 
 
 {% block body %}
-    <h1 style= "margin-top: 200px; text-shadow: 50px, 50px, 65px, #000000;">View forums {{ form }}</h1>
+    <h1 style= "margin-top: 200px; text-shadow: 50px, 50px, 65px, #000000;">View forums</h1>
 
-    {% for form in all_forums %}
+    {% for thread in all_forums %}
     <div class="forum" >
-            <p>{{ form.title }}</p>
-            <p>{{ form.description }}</p>
+        <a href = "{{ url_for('forum.create_Comment', forum_id = thread.id) }}">
+            <p>{{ thread.title }}</p>
+        </a>
     </div>
     {% endfor %}
 

@@ -1,22 +1,36 @@
 {% extends "base.html" %}
 
-{% block title %} Create FC {% endblock title %}
+{% block title %} View Forum - {{ forum.title }} {% endblock title %}
 
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/FC.css') }}">
 {% endblock head %}
 
-
 {% block body %}
-    <h1 style="margin-top: 200px; text-shadow: 50px, 50px, 65px, #000000;">View forums {{ form }}</h1>
+    <h1 style="margin-top: 200px; text-shadow: 50px, 50px, 65px, #000000;">View comments {{ thread }}</h1>
+    <p>{{ forum.title }}</p>
+    <p>{{ forum.description }}</p>
+    <p>{{ forum.content }}</P>
 
-    {% for com in comment %}
-    <div class="comment">
-        <p>{{ com.title }}</p>
-        <p>{{ com.description }}</p>
-    </div>
+    {% for com in all_comments %}
+        <div class="comment">
+            <p><strong>Title:</strong><br>{{ com.title }}<strong>Description:</strong>{{ com.description }}</p>
+
+            {% if current_user.is_authenticated and current_user.id == com.creator_id %}
+                <form method="post" onsubmit="return confirm('Are you sure you want to delete this comment?');"
+                      action="{{ url_for('forum.delete_comment', forum_id=forum.id, comment_id=com.id) }}">
+                    <button type="submit" class="btn btn-danger">Delete Comment</button>
+                </form>
+            {% endif %}
+        </div>
     {% endfor %}
 
-    <a class="addCard" href="{{ url_for('forum.create_forum') }}">create forum</a>
-{% endblock body %}
+    {% if current_user.is_authenticated and current_user.id == forum.creator_id %}
+        <form method="post" onsubmit="return confirm('Are you sure you want to delete this post and all comments?');"
+              action="{{ url_for('forum.delete_forum', forum_id=forum.id) }}">
+            <button type="submit" class="btn btn-danger">Delete Post and Comments</button>
+        </form>
+    {% endif %}
 
+    <a class="addComment" href="{{ url_for('forum.create_Comment', forum_id=forum.id) }}">Create Comment</a>
+{% endblock body %}

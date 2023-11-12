@@ -7,9 +7,11 @@ class Forum(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(256), nullable=False)
-    description = db.Column(db.String(256), nullable = False)
+    description = db.Column(db.String(1024), nullable = False)
+    content =db.Column(db.String(100024), nullable = False)
     creator_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     created_on = db.Column(db.DateTime, default=datetime.utcnow)
+    kilo = db.Column(db.Double, nullable = False)
 
     comments = db.relationship('Comment', backref='forum', lazy=True)
     creator = db.relationship('User', backref='forums')
@@ -19,7 +21,7 @@ class Comment(db.Model):
     __tablename__ = 'comment'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(256), nullable=False)
-    description = db.Column(db.String(1024), nullable=False)
+    description = db.Column(db.String(100024), nullable=False)
     
     creator_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     forum_id = db.Column(db.Integer, db.ForeignKey('forum.id'), nullable=False)
