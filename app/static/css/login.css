@@ -1,0 +1,87 @@
+/* login.css */
+
+body {
+    background-color: #FEFAE0;
+    color: #FEFAE0;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2.5%; /* Use percentage for padding */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #4A652B;
+    text-align: center ;
+}
+.login-container legend {
+    display: block;
+    width: 100%; /* Ensure the legend takes up the full width */
+    text-align: center; /* Center the text horizontally within the legend */
+    margin-bottom: 10px; /* Adjust as needed */
+    color: #4A652B; /* You can customize the color if needed */
+    border: none;
+}
+
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control-label,
+h2,
+legend.border-bottom.mb-4 {
+    color: #4A652B;
+}
+legend.border-bottom.mb-4{
+    font-weight: bold;
+
+}
+
+.form-control {
+    color: #4A652B;
+    font-family: 'Sarabun', sans-serif;
+    margin: 0.5rem 0;
+    width: 50%;
+    padding: 1.5%; /* Use percentage for padding */
+    font-size: 1em; /* Use em for font size */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn {
+    cursor: pointer;
+    background-color: #4A652B;
+    border: 1px solid #4A652B;
+    padding: 1rem 2rem;
+    transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+}
+.btn:hover {
+    background-color: #2E3E13; /* Darker shade or a different color on hover */
+    color: #FEFAE0; /* Light text color on hover */
+}
+
+.btn,
+.btn:active,
+.btn:focus,
+.btn span {
+    color: #FEFAE0;
+}
+
+.text-muted {
+    color: #FEFAE0;
+}
+
+.text-muted a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.text-muted a:hover {
+    text-decoration: underline;
+}
+.header-top {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+}
