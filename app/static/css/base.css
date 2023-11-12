@@ -36,7 +36,8 @@ li {
 .navbar ul {
   list-style-type: none;
   margin: 0;
-  padding: 10px 0px 0px;
+  padding: 0;
+  padding-top: 10px;
   border-bottom: thin solid #000;
   overflow: hidden;
   background-color: #FEFAE0;
