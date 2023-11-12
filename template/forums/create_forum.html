@@ -7,25 +7,27 @@
 {% endblock head %}
 
 {% block body %}
-    <h1 style="margin-top: 100px; text-shadow: 50px, 50px, 65px, #000000;">Create threads</h1>
+    <div class="create-window">
+        <h1>Create a project</h1>
 
-    <form class="askForum" method="post">
-        {{ form.hidden_tag() }}
-        <p class="input">{{ form.title.label }}<br>{{ form.title(size=20) }}</p>
-        <p class="input">{{ form.description.label }}<br>{{ form.description(size=20) }}</p>
-        <p class="input">{{ form.content.label }}<br>{{ form.content(size=20) }}</p>
+        <form class="ask-forum" method="post">
+            {{ form.hidden_tag() }}
+            <h2 class="input">{{ form.title.label }}<br>{{ form.title(size=20) }}</h2>
+            <h2 class="input">{{ form.description.label }}<br>{{ form.description(size=20) }}</h2>
+            <h2 class="input">{{ form.content.label }}<br>{{ form.content(size=20) }}</h2>
 
-        <!-- Button to trigger the AI-generated summary -->
-        <button type="button" onclick="generateSummary()">Generate Summary</button>
+            <!-- Button to trigger the AI-generated summary -->
+            <button type="button" onclick="generateSummary()">Generate Summary</button>
 
-        <!-- Display the AI-generated summary here -->
-        <p id="summaryResult">{{ output_text }}</p>
+            <!-- Display the AI-generated summary here -->
+            <p id="summaryResult">{{ output_text }}</p>
 
-        <!-- Include the original form submission button -->
-        <p class="button">{{ form.submit() }}</p>
-    </form>
+            <!-- Include the original form submission button -->
+            <p class="button">{{ form.submit() }}</p>
+        </form>
 
-    <script src="{{ url_for('static', filename='js/your_script.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/your_script.js') }}"></script>
+    </div>
 {% endblock body %}
 
 {% block scripts %}

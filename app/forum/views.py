@@ -180,6 +180,7 @@ def create_forum():
    view_forums()
     
    form = CreateForumForm()
+   user = current_user
    if form.validate_on_submit():
        errord = True
        desc = ""
@@ -200,7 +201,7 @@ def create_forum():
 
        return redirect(url_for('forum.home'))
   
-   return render_template('forums/create_forum.html', form=form)# creates a new post
+   return render_template('forums/create_forum.html', user = user, form=form)# creates a new post
 
 def view_forums(): # debug
     comments = Comment.query.all()  # Adjust this query based on your data model
