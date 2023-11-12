@@ -11,7 +11,7 @@ from datetime import date, timedelta
 
 from . import base_blueprint
 
-@base_blueprint.route('/')
+@base_blueprint.route('/main')
 def main():
     return render_template("base.html")
 
