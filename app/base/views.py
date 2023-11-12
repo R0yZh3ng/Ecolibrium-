@@ -14,3 +14,7 @@ from . import base_blueprint
 @base_blueprint.route('/home')
 def main():
     return render_template("base.html")
+
+@base_blueprint.route('/about_us')
+def about_us():
+    return render_template("about_us.html")
