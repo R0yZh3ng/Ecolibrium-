@@ -14,8 +14,9 @@ from . import forum_blueprint
 def home():
     user_all_forums = Forum.query.options(db.joinedload(Forum.creator)).filter_by(creator_id=current_user.id).all()
     all_forums = Forum.query.options(db.joinedload(Forum.creator)).all()
+    username = current_user.username
 
-    return render_template('forums/home.html', all_forums=all_forums, user_all_forums=user_all_forums)
+    return render_template('forums/home.html', all_forums=all_forums, user_all_forums=user_all_forums, username = username)
 
 
 @forum_blueprint.route('/view_Forum/<int:forum_id>', methods=['GET', 'POST'])

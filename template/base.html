@@ -28,8 +28,8 @@
                         <li><a href="{{ url_for('forum.home') }}">Browse projects</a></li>
                         <li id="verticalLine"><div>|</div></li>
                         {% if current_user.is_authenticated %}
-                            <li><a href="{{ url_for('user.view_profile') }}"></a>pfp</li>
-                            <li><a href="{{ url_for('user.view_profile') }}"></a>username</li>
+                            <li><a href="{{ url_for('user.view_profile' )}}">pfp</a></li>
+                            <li><a href="{{ url_for('user.view_profile' )}}">{{username}}</a></li>
                         {% else %} <!-- user logged in -->
                             <li id="navbar-button"><a href="{{ url_for('user.register') }}">Register</a></li>
                         {% endif %} <!-- user not logged in -->
