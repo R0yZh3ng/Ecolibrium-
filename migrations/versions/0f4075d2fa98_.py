@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 3773cfc57dac
+Revision ID: 0f4075d2fa98
 Revises: 
-Create Date: 2023-11-11 21:12:58.356860
+Create Date: 2023-11-12 07:54:14.980017
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '3773cfc57dac'
+revision = '0f4075d2fa98'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -29,16 +29,18 @@ def upgrade():
     op.create_table('forum',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=256), nullable=False),
-    sa.Column('description', sa.String(length=256), nullable=False),
+    sa.Column('description', sa.String(length=1024), nullable=False),
+    sa.Column('content', sa.String(length=100024), nullable=False),
     sa.Column('creator_id', sa.Integer(), nullable=False),
     sa.Column('created_on', sa.DateTime(), nullable=True),
+    sa.Column('kilo', sa.Double(), nullable=False),
     sa.ForeignKeyConstraint(['creator_id'], ['user.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('comment',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=256), nullable=False),
-    sa.Column('description', sa.String(length=1024), nullable=False),
+    sa.Column('description', sa.String(length=100024), nullable=False),
     sa.Column('creator_id', sa.Integer(), nullable=False),
     sa.Column('forum_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['creator_id'], ['user.id'], ),

@@ -154,16 +154,14 @@ def view_Forum(forum_id):
 
     return render_template('forums/view_forum.html', forum=forum, all_comments=all_comments)
 
-# def calc():
-#     forum = Forum.query.all()
-#     totalSaved = forum.kilo
+def calc():
+    forum = Forum.query.all()
+    totalSaved = Forum.kilo
     
-#     for kilo in totalSaved:
-#         kilo+=kilo
+    for kilo in totalSaved:
+        kilo+=kilo
 
-#     return kilo
-    
-# This would be the function used to calculate the total kg of emission reduced
+    return kilo
 
 
 @forum_blueprint.route('/pub_view_forum/<int:forum_id>')
