@@ -26,7 +26,7 @@
                 <li><a href = "{{ url_for('base.main') }}">EcoLibrium</a></li>
                 <div id="navbar-right">
                     <li><a href="{{ url_for('forum.home') }}">Browse projects</a></li>
-                    <li><div id="verticalLine"></div>|</li>
+                    <li><div id="verticalLine">|</div></li>
                     {% if current_user.is_authenticated %}
                         <li><a href="{{ url_for('user.self') }}"></a>pfp</li>
                         <li><a href="{{ url_for('user.self') }}"></a>username</li>

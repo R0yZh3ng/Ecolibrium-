@@ -8,23 +8,13 @@ p, li {
 }
 
 li {
-  font-size: 24px;
-}
-
-h1{
-  margin-top: 50px;
-  text-align: center;
-  font-size: 5rem;
-  color: white;
-  text-shadow: 50px, 50px, 65px, #000000;
-  font-family: 'Arial', sans-serif;
-  font-weight: 700;
+  font-size: 1.5rem;
 }
 
 .navbar ul {
   list-style-type: none;
   margin: 0;
-  padding: 5px;
+  padding: 10px;
   border-bottom: thin solid #000;
   overflow: hidden;
   background-color: #FEFAE0;
@@ -47,15 +37,30 @@ h1{
 }
 
 #verticalLine {
-  font-size: 30px;
+  font-size: 2rem;
+  font-weight: lighter;
+  padding: 4px 18px;
+}
+
+#navbar-button {
+  background-color: #A3D454;
+  border-radius: 5px;
+  margin: 0 18px;
+  padding: 0 20px;
+}
+#navbar-button:hover {
+  background-color: #4A652B;
+  color: #FEFAE0;
+}
+#navbar-button a {
+  padding: 10px 16px;
 }
 
 /* Dropdown Button */
 .dropbtn {
   background-color: #FEFAE0;
   color: #000;
-  padding: 16px;
-  font-size: 16px;
+  font-size: 3rem;
   border: none;
   cursor: pointer;
 }
