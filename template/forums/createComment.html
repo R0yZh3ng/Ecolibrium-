@@ -8,7 +8,10 @@
 
 
 {% block body %}
-    <h1 style= "margin-top: 100px; text-shadow: 50px, 50px, 65px, #000000;">Create Comment</h1>
+    <h1 style= "margin-top: 100px; text-shadow: 50px, 50px, 65px, #000000;">{{forum.title}}</h1>
+
+    <p>{{forum.title}}</P>
+    <p>{{forum.description}}</P>
 
     <form class = "askForum" method="post">
         {{ form.hidden_tag() }}

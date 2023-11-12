@@ -61,6 +61,7 @@ def view_forums(): # debug
 @login_required
 def create_Comment(forum_id):
    form = CreateComments()
+   forum = Forum.query.get_or_404(forum_id)
    if form.validate_on_submit():
        comment = Comment(
            title = form.title.data,
@@ -68,14 +69,15 @@ def create_Comment(forum_id):
            forum_id= forum_id,
            creator_id=current_user.id
    )
+       
        db.session.add(comment)
        db.session.flush()
        db.session.commit()
        flash('Comment successfully added to the forum')
 
-       return redirect(url_for('forum.view_Forum', forum_id = forum_id))
+       return redirect(url_for('forum.view_Forum', forum = forum, forum_id = forum_id))
   
-   return render_template('forums/createComment.html', form = form)# this def creates new flashcards in the set selected
+   return render_template('forums/createComment.html', form = form, forum = forum)# this def creates new flashcards in the set selected
 
 def print_forums():
      all_forums = Forum.query.all()
