@@ -174,31 +174,18 @@ def pub_view_Forum(forum_id):
 @login_required
 def create_forum():
    view_forums()
-   global global_output_text
-   try:
-        global global_input_text  # Use the global_input_text variable
-        input_text = global_input_text
-        output_text = ""
-
-        if request.method == 'POST':
-            input_text = request.form['input_text']
-            print(input_text)
-
-            output_text = generate(input_text)
-            global_output_text = output_text
-
-            print(output_text)
-
-   except Exception as e:
-        input_text = ""
-        output_text = "An error has occoured. please try again"
-        print(f"Main error: {e}")  # Print specific main error to console
     
    form = CreateForumForm()
    if form.validate_on_submit():
+       errord = True
+       desc = ""
+       while errord:
+          desc = generate(form.content.data)
+          if "Error" not in desc:
+             errord = False # attempt to generate desc untill no error is throwm
        forum = Forum(
            title=form.title.data,
-           description=form.description.data,
+           description=desc,
            content=form.content.data,
            creator_id=current_user.id,
            kilo = 0.1
@@ -209,7 +196,7 @@ def create_forum():
 
        return redirect(url_for('forum.home'))
   
-   return render_template('forums/create_forum.html', form=form, output_text=output_text, input_text=input_text)# creates a new deck
+   return render_template('forums/create_forum.html', form=form)# creates a new post
 
 def view_forums(): # debug
     comments = Comment.query.all()  # Adjust this query based on your data model
