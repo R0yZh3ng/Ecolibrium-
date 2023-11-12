@@ -3,22 +3,28 @@
 {% block title %} Create comments {% endblock title %}
 
 {% block head %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/create_forum.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/createComment.css') }}">
 {% endblock head %}
 
 
 {% block body %}
-    <h1 style= "margin-top: 100px; text-shadow: 50px, 50px, 65px, #000000;">{{forum.title}}</h1>
+    <div class="header">
+        <h1>{{forum.title}}</h1>
+        <h2>{{forum.description}}</h2>
+        <div style="width: 40%; border-bottom: thin solid #000;"></div>
+    </div>
 
-    <p>{{forum.title}}</P>
-    <p>{{forum.description}}</P>
-    <p>{{forum.content}}</P>
+    <div class="body">
+        <p>{{forum.content}}</p>
+    </div>
 
-    <form class = "askForum" method="post">
-        {{ form.hidden_tag() }}
-        <p class = "input">{{ form.title.label }}<br>{{ form.title(size=20) }}</p>
-        <p class = "input">{{ form.description.label }}<br>{{ form.description(size=20) }}</p>
-    
-        <p class="button">{{ form.submit() }}</p>
-    </form>
+    <div class="comments">
+        <form class = "askForum" method="post">
+            {{ form.hidden_tag() }}
+            <h3 class = "input">{{ form.title.label }}<br>{{ form.title(size=20) }}</h3>
+            <h3 class = "input">{{ form.description.label }}<br>{{ form.description(size=20) }}</h3>
+        
+            <p class="button">{{ form.submit() }}</p>
+        </form>
+    </div>
 {% endblock body %}

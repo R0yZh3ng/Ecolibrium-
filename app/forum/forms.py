@@ -10,6 +10,6 @@ class CreateForumForm(FlaskForm):
 
 
 class CreateComments(FlaskForm):
-   title = StringField('title', validators = [DataRequired()])
-   description = StringField('description', validators = [DataRequired()])
+   title = StringField('Title', validators = [DataRequired()])
+   description = StringField('Description', validators = [DataRequired()])
    submit = SubmitField('Create Comment')
