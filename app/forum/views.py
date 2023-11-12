@@ -9,7 +9,7 @@ from app.user.models import User
 
 from . import forum_blueprint
 
-import requests
+import requests, re
 
 API_URL_LIST = [
     "https://api-inference.huggingface.co/models/Michael-Vptn/ecolibrium", # michael's text sum model
@@ -141,6 +141,7 @@ def home():
 @login_required
 def view_Forum(forum_id):
     forum = Forum.query.get_or_404(forum_id)
+    user = current_user
 
     if request.method == 'POST':
         comment_title = request.form.get('comment_title')
@@ -155,7 +156,7 @@ def view_Forum(forum_id):
 
     all_comments = forum.comments
 
-    return render_template('forums/view_forum.html', forum=forum, all_comments=all_comments)
+    return render_template('forums/view_forum.html', user = user, forum=forum, all_comments=all_comments)
 
 def calc():
     forum = Forum.query.all()
