@@ -29,8 +29,7 @@ def create_app():
     from .user.views import user_blueprint
     app.register_blueprint(user_blueprint, url_prefix = '/')
     from .forum.views import forum_blueprint
-    app.register_blueprint(forum_blueprint, url_prefix='/')
-
+    app.register_blueprint(forum_blueprint, url_prefix = '/')
 
     @login_manager.user_loader
     def load_user(user_id):
