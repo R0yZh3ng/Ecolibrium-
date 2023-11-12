@@ -10,6 +10,6 @@ class CreateForumForm(FlaskForm):
 
 
 class CreateComments(FlaskForm):
-   question = StringField('question', validators = [DataRequired()])
-   answer = StringField('answer', validators = [DataRequired()])
+   title = StringField('title', validators = [DataRequired()])
+   description = StringField('description', validators = [DataRequired()])
    submit = SubmitField('Create flashCard')
