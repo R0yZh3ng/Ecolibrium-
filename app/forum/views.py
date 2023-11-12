@@ -23,9 +23,9 @@ def home():
 @login_required
 def view_Forum(forum_id):
    forum = Forum.query.get_or_404(forum_id)
-   comment = forum.comments
+   all_comments = forum.comments
 
-   return render_template('forums/view_forum.html', forum=forum, comment=comment)# use this to diplay the correct forum
+   return render_template('forums/view_forum.html', forum=forum, all_comments=all_comments)# use this to diplay the correct forum
 
 @forum_blueprint.route('/pub_view_forum/<int:forum_id>')
 def pub_view_Forum(forum_id):
@@ -57,10 +57,9 @@ def view_forums(): # debug
     print(comments)
 
 
-@forum_blueprint.route('/create_Comment/<int:deck_id>', methods=['GET', 'POST'])
+@forum_blueprint.route('/create_Comment/<int:forum_id>', methods=['GET', 'POST'])
 @login_required
-def create_Flash_Cards(forum_id):
-
+def create_Comment(forum_id):
    form = CreateComments()
    if form.validate_on_submit():
        comment = Comment(
@@ -70,10 +69,11 @@ def create_Flash_Cards(forum_id):
            creator_id=current_user.id
    )
        db.session.add(comment)
+       db.session.flush()
        db.session.commit()
        flash('Comment successfully added to the forum')
 
-       return redirect(url_for('forum.view_forum', forum_id = forum_id))
+       return redirect(url_for('forum.view_Forum', forum_id = forum_id))
   
    return render_template('forums/createComment.html', form = form)# this def creates new flashcards in the set selected
 
