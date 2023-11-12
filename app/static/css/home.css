@@ -2,20 +2,49 @@ a {
   text-decoration: none;
 }
 
+.addCard {
+  width: 10%;
+  margin: -10px auto 30px;
+  padding: 5px 0;
+  background-color: #A3D454;
+  border: thin solid #4A652B;
+  border-bottom-width: medium;
+  border-radius: 10px;
+  color: #000;
+  text-align: center;
+}
+.addCard:hover {
+  background-color: #8fba4a;
+}
+
 .forum {
+  display: flex;
+  align-items: center;
   margin: auto;
+  margin-bottom: 20px;
   width: 80%;
   height: 100px;
   border-radius: 50px;
   background-color: #A3D454;
   color: #000;
 }
+.forum:hover {
+  background-color: #8fba4a;
+}
+.forum-hole {
+  position: relative;
+  height: 80%;
+  width: 0;
+  margin-left: 10px;
+  padding-left: 7%;
+  background-color: #FEFAE0;
+  border-radius: 50px;
+}
 .forum-text {
   position: relative;
-  left: 20%;
+  left: 2%;
   margin-top: 5px;
 }
-
 .forum h3 {
   font-weight: 400;
 }

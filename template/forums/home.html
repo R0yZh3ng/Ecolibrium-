@@ -10,9 +10,14 @@
 {% block body %}
     <h1>Browse projects</h1>
 
+    <a href ="{{ url_for('forum.create_forum') }}">
+        <div class="addCard">Create project</div>
+    </a>
+
     {% for thread in all_forums %}
     <a href = "{{ url_for('forum.create_Comment', forum_id = thread.id) }}">
         <div class="forum">
+            <div class="forum-hole"></div>
             <div class="forum-text">
                 <h3>{{ thread.title }}</h3>
                 <p>{{ thread.description }} </p>
@@ -21,7 +26,4 @@
     </a>
     {% endfor %}
 
-   <a class ="addCard" href ="{{ url_for('forum.create_forum') }}">create forum</a>
-
-   
 {% endblock body %}
