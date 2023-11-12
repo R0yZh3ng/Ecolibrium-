@@ -4,7 +4,11 @@ body {
 }
 
 p, li {
-  font-family: 'Sarabun', serif;
+  font-family: 'Sarabun', sans-serif;
+}
+
+p {
+  font-size: 1rem;
 }
 
 li {
@@ -14,7 +18,7 @@ li {
 .navbar ul {
   list-style-type: none;
   margin: 0;
-  padding: 10px;
+  padding: 10px 0px 0px;
   border-bottom: thin solid #000;
   overflow: hidden;
   background-color: #FEFAE0;
@@ -28,8 +32,18 @@ li {
   display: block;
   color: #000;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
+  padding: 10px 14px;
+}
+.navbar img {
+  padding-left: 20px;
+  max-height: 50px;
+}
+
+#navbar-title a {
+  font-weight: 700;
+  font-family: 'Fredoka One', sans-serif;
+  color: #4A652B;
 }
 
 #navbar-right {
@@ -39,14 +53,13 @@ li {
 #verticalLine {
   font-size: 2rem;
   font-weight: lighter;
-  padding: 4px 18px;
+  margin: -10px 10px;
 }
 
 #navbar-button {
   background-color: #A3D454;
   border-radius: 5px;
-  margin: 0 18px;
-  padding: 0 20px;
+  font-weight: 1000;
 }
 #navbar-button:hover {
   background-color: #4A652B;
@@ -66,17 +79,19 @@ li {
 }
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
+  float: right;
   position: relative;
-  display: inline-block;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdownContent {
   display: none;
   position: absolute;
-  background-color: #FEFAE0;
+  background-color: #f1f1f1;
   min-width: 160px;
+  overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  right: 0;
   z-index: 1;
 }
 /* Links inside the dropdown */
