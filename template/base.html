@@ -40,7 +40,7 @@
                 </ul>
             </div>
             <div class="dropdown">
-                <button onclick="toggleButton()" class="dropbtn"><i class="fas fa-caret-down"></i></button>
+                <button onclick="toggleDropdown()" class="dropbtn"><i class="fas fa-caret-down"></i></button>
                 <div id="dropdownMenu" class="dropdownContent">
                     <a href="{{ url_for('base.about_us') }}">About EcoLibrium</a>
                     {% if current_user.is_authenticated %}

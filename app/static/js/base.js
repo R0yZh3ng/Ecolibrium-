@@ -1,6 +1,6 @@
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-function toggleButton() {
+function toggleDropdown() {
   var dropdown = document.getElementById("dropdownMenu");
   dropdown.style.display = (dropdown.style.display == 'block') ? 'none' : 'block';
 }
