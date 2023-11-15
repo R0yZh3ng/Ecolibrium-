@@ -6,6 +6,7 @@ from werkzeug.security import check_password_hash
 from app.user.forms import RegistrationForm
 from app.user.forms import LoginForm
 from app.user.models import User
+from app.forum.models import Forum
 from app import db
 from app.__init__ import bcrypt
 
@@ -19,7 +20,7 @@ def login():
         user = User.query.filter_by(username = form.username.data).first()
         if user and bcrypt.check_password_hash(user.password_hash, form.password.data):
             login_user(user, remember = form.remember.data)
-            return redirect(url_for('forums.home'))
+            return redirect(url_for('forum.home'))
         else:
             flash('Login Unsuccessful, please check the username and password', 'danger')
 
@@ -29,9 +30,9 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('base.home'))
+    return redirect(url_for('base.main'))
 
-@user_blueprint.route('/register', methods=['GET, POST'])
+@user_blueprint.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
@@ -46,3 +47,13 @@ def register():
         flash('Your account has been created, please login using the set credentials')
         return redirect(url_for('user.login'))
     return render_template('user/register.html', title = 'Register', form= form)
+
+@user_blueprint.route('/view_profile', methods = ['GET', 'POST'])
+@login_required
+def view_profile():
+    user_id = current_user.id
+    user_all_forums = Forum.query.options(db.joinedload(Forum.creator)).filter_by(creator_id=user_id).all()
+    user = User.query.get_or_404(user_id)
+
+    return render_template('user/self.html', user = user, user_all_forums = user_all_forums)
+

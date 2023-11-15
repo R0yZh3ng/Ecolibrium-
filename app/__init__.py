@@ -5,7 +5,7 @@ from flask_bcrypt import Bcrypt
 
 from flask_login import LoginManager
 login_manager = LoginManager()
-login_manager.login_view = 'user_login'
+login_manager.login_view = 'user.login'
 
 import os
 
@@ -21,16 +21,18 @@ def create_app():
 
     bcrypt.init_app(app)
     db.init_app(app)
-    migrate.init_app(app)
+    migrate.init_app(app, db)
     login_manager.init_app(app)
 
     from .base.views import base_blueprint
     app.register_blueprint(base_blueprint, url_prefix='/')
     from .user.views import user_blueprint
     app.register_blueprint(user_blueprint, url_prefix = '/')
+    from .forum.views import forum_blueprint
+    app.register_blueprint(forum_blueprint, url_prefix = '/')
 
     @login_manager.user_loader
     def load_user(user_id):
         from .user.models import User
-        return User.query.get(int(user.id))
+        return User.query.get(int(user_id))
     return app

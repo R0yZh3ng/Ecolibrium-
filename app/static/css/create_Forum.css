@@ -1,0 +1,32 @@
+h2, form, p {
+    font-family: 'Sarabun', sans-serif;
+}
+
+/*button, .button {
+    background-color: #FEFAE0;
+    border-radius: 5px;
+    border: thin solid rgb(199, 194, 157);
+    border-bottom-width: medium;
+}*/
+
+form, p {
+    font-size: 16px;
+}
+
+.create-window {
+    width: 60%;
+    margin: auto;
+    padding: 5px 20px;
+    padding-bottom: 40px;
+    background-color: #A3D454;
+    border-radius: 30px;
+}
+
+.input {
+    padding: 0 40px 20px;
+}
+
+.ask-forum{
+    text-align: center;
+    color: #000;
+}

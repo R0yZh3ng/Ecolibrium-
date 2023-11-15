@@ -1,0 +1,23 @@
+h1 {
+  text-align: left;
+  margin: 0;
+}
+
+h2, h3 {
+  font-family: 'Sarabun', sans-serif;
+}
+
+h2 {
+  color: #4A652B;
+  font-weight: 700;
+}
+
+.header {
+  padding-bottom: 20px;
+}
+
+.body {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: thin solid #000;
+}

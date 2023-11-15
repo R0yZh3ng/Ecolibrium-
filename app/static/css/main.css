@@ -1,0 +1,29 @@
+.line-chart {
+  margin: auto;
+  width: 60%;
+  align-self: center;
+  min-height: 350px;
+}
+/* Chart lines */
+.line-chart table {
+  border-collapse: collapse;
+  empty-cells: show;
+  width: 100%;
+  min-height: inherit;
+}
+.line-chart table tbody tr {
+  min-height: 20%;
+  border-bottom: thin solid #DBA976;
+}
+/* Chart data */
+.line-chart ul {
+  list-style-type: none;
+}
+.line-chart-data {
+  background-color: blue;
+  left: var(--x);
+  top: var(--y);
+  height: 3px;
+  position: absolute;
+  width: calc(var(--hypotenuse) * 1px);
+}
