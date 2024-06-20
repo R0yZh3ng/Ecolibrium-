@@ -1,3 +1,3 @@
 # Ecolibrium-
 
-ayy the backend didn't break this time
+View [this Devpost link](https://devpost.com/software/ecolibrium) if you would like to learn more about Ecolibrium!
